@@ -10,7 +10,13 @@ import logger from 'redux-logger';
 function feedbackReducer(state = {}, action) {
   if (action.type === 'ADD_FEELING') {
     return {
+      ...state,
       feeling: action.payload
+    }
+  } else if (action.type === 'ADD_UNDERSTANDING') {
+    return {
+      ...state,
+      understanding: action.payload,
     }
   }
   return state;

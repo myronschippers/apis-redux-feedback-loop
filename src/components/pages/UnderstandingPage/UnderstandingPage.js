@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class UnderstandingPage extends Component {
   handleClickNext = () => {
     this.props.history.push('/support');
+    this.props.dispatch({
+      type: 'ADD_UNDERSTANDING',
+      payload: 3,
+    });
   }
 
   render() {
@@ -15,4 +20,4 @@ class UnderstandingPage extends Component {
   }
 }
 
-export default UnderstandingPage;
+export default connect()(UnderstandingPage);
