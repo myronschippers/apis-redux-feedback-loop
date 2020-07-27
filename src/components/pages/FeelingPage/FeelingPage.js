@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class FeelingPage extends Component {
   handleClickNext = () => {
     this.props.history.push('/understanding');
+    this.props.dispatch({
+      type: 'ADD_FEELING',
+      payload: 2
+    });
   }
 
   render() {
@@ -15,4 +20,5 @@ class FeelingPage extends Component {
   }
 }
 
-export default FeelingPage;
+// currying => connect()()
+export default connect()(FeelingPage);
