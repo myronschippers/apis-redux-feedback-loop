@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class ReviewPage extends Component {
   handleClickSubmit = () => {
     this.props.history.push('/thank-you');
+    this.postFeedback();
+  }
+
+  postFeedback() {
+    axios.post('/api/feedback', this.props.store.feedbackReducer)
+      .then((response) => {
+        console.log('POST - feedback', response);
+      })
+      .catch((err) => {
+        console.log('Error:', err);
+        alert('Something went wrong while saving your feedback.');
+      });
   }
 
   render() {
