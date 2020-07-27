@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
@@ -17,7 +17,7 @@ function feedbackReducer(state = defaultFeedback, action) {
   if (action.type === 'ADD_FEELING') {
     return {
       ...state,
-      feeling: action.payload
+      feeling: action.payload,
     }
   } else if (action.type === 'ADD_UNDERSTANDING') {
     return {
