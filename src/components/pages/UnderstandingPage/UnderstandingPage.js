@@ -7,6 +7,11 @@ class UnderstandingPage extends Component {
   }
 
   handleClickNext = () => {
+    if (this.state.understandingEntered === '' || !this.state.understandingEntered) {
+      alert('A score must be entered for understanding.');
+      return;
+    }
+
     this.props.history.push('/support');
     this.props.dispatch({
       type: 'ADD_UNDERSTANDING',

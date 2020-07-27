@@ -7,6 +7,11 @@ class SupportPage extends Component {
   }
 
   handleClickNext = () => {
+    if (this.state.supportEntered === '' || !this.state.supportEntered) {
+      alert('A score must be entered for support.');
+      return;
+    }
+
     this.props.history.push('/comments');
     this.props.dispatch({
       type: 'ADD_SUPPORT',

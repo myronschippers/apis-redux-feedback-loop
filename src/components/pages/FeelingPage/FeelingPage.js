@@ -7,6 +7,11 @@ class FeelingPage extends Component {
   }
 
   handleClickNext = () => {
+    if (this.state.feelingEntered === '' || !this.state.feelingEntered) {
+      alert('A score must be entered for feeling.');
+      return;
+    }
+
     this.props.history.push('/understanding');
     this.props.dispatch({
       type: 'ADD_FEELING',
