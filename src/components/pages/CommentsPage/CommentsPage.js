@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CommentsPage extends Component {
   handleClickNext = () => {
     this.props.history.push('/review');
+    this.props.dispatch({
+      type: 'ADD_COMMENTS',
+      payload: 'Some Comments'
+    });
   }
 
   render() {
@@ -15,4 +20,4 @@ class CommentsPage extends Component {
   }
 }
 
-export default CommentsPage;
+export default connect()(CommentsPage);

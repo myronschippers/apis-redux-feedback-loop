@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class SupportPage extends Component {
   handleClickNext = () => {
     this.props.history.push('/comments');
+    this.props.dispatch({
+      type: 'ADD_SUPPORT',
+      payload: 4
+    });
   }
 
   render() {
@@ -15,4 +20,4 @@ class SupportPage extends Component {
   }
 }
 
-export default SupportPage;
+export default connect()(SupportPage);
