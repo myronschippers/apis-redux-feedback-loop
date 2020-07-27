@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 
+// TODO - SETUP router for 6 pages
+
 class App extends Component {
   render() {
     return (

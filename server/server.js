@@ -10,6 +10,8 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 
+// TODO - setup some routes for posting my reviews
+
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
