@@ -7,7 +7,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-function feedbackReducer(state = {}, action) {
+const defaultFeedback = {
+  feeling: '',
+  understanding: '',
+  support: '',
+  comments: '',
+};
+function feedbackReducer(state = defaultFeedback, action) {
   if (action.type === 'ADD_FEELING') {
     return {
       ...state,
@@ -28,6 +34,8 @@ function feedbackReducer(state = {}, action) {
       ...state,
       comments: action.payload,
     }
+  } else if (action.type === 'CLEAR_FEEDBACK') {
+    return defaultFeedback;
   }
 
   return state;

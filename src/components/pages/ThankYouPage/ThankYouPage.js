@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class ThankYouPage extends Component {
   handleClickStartOver = () => {
+    this.props.dispatch({
+      type: 'CLEAR_FEEDBACK',
+    })
     this.props.history.push('/');
   }
 
@@ -15,4 +19,4 @@ class ThankYouPage extends Component {
   }
 }
 
-export default ThankYouPage;
+export default connect()(ThankYouPage);
