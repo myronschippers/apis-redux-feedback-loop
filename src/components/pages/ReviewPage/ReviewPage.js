@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class ReviewPage extends Component {
   handleClickSubmit = () => {
@@ -9,10 +10,19 @@ class ReviewPage extends Component {
     return (
       <div>
         <h2>Review?</h2>
+        <p>Feelings: {this.props.store.feedbackReducer.feeling}</p>
+        <p>Understanding: {this.props.store.feedbackReducer.understanding}</p>
+        <p>Support: {this.props.store.feedbackReducer.support}</p>
+        <p>Comments: {this.props.store.feedbackReducer.comments}</p>
         <button onClick={this.handleClickSubmit}>Submit</button>
       </div>
     );
   }
 }
 
-export default ReviewPage;
+const putStoreOnProps = (store) => {
+  return {
+    store,
+  }
+}
+export default connect(putStoreOnProps)(ReviewPage);
